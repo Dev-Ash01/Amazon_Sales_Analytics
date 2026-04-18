@@ -1,65 +1,208 @@
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&duration=3000&pause=1000&color=2563EB&center=true&vCenter=true&width=435&lines=Data+Analyst;Machine+Learning+Enthusiast;Visualizing+Insights;Building+AI+Solutions" alt="Typing SVG" />
-</div>
+# 📊 Amazon Sales Analytics | Power BI Business Intelligence Dashboard
 
-<div align="center">
-  <img src="analytics.gif" width="600" alt="Data Analysis Animation" />
-</div>
+> **End-to-End BI Case Study | Star Schema | DAX | Executive Dashboards**
 
-<div align="center">
-  <h3>Hi there! 👋</h3>
-  <p>I transform raw data into actionable insights and build intelligent models.</p>
-</div>
 
-<br/>
+***
 
-<div align="center">
-  <h3>🛠️ Technical Arsenal</h3>
-  
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white" />
-  <img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white" />
-  <br/>
-  
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" />
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" />
-  <img src="https://img.shields.io/badge/SciKit_Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" />
-  <br/>
-  
-  <img src="https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white" />
-  <img src="https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black" />
-  <img src="https://img.shields.io/badge/Matplotlib-ffffff?style=for-the-badge&logo=pandas&logoColor=black" />
-</div>
+## 🧭 Overview
 
-<br/>
+This project presents a **multi-layered Business Intelligence system** built on Amazon transactional sales data (2015–2020). It transforms raw order-level records into an executive-grade decision support tool — answering critical business questions around revenue, profitability, customer behavior, and operational performance.
 
-<div align="center">
-  <h3>📊 GitHub Analytics</h3>
-  <a href="https://github.com/anuraghazra/github-readme-stats">
-    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=tokyonight&hide=html,css"/>
-  </a>
-</div>
+> **Business Value:** Identifies where profit is being lost, which customers drive the most value, and whether the business is on track to hit its targets.
 
-<div align="center">
-  <h3>🏆 Achievements</h3>
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=YOUR_USERNAME&theme=flat&no-frame=true&no-bg=true&margin-w=4" />
-  </a>
-</div>
+***
 
-<br/>
+## 🎯 Problem Statement
 
-<div align="center">
-  <h3>🤝 Let's Connect</h3>
-  <a href="https://linkedin.com/in/yourprofile" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-  </a>
-  <a href="mailto:youremail@example.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/>
-  </a>
-  <a href="https://kaggle.com/yourprofile" target="_blank">
-    <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/>
-  </a>
-</div>
+E-commerce businesses generate massive transactional data but often lack structured insight to answer:
+
+- Which products **drive revenue** vs. just volume?
+- Who are the **most valuable customers**?
+- Where is **profit being lost** — discounts, returns, or logistics?
+- Is the business **meeting its revenue and profit targets**?
+
+***
+
+## 📁 Dataset
+
+| Attribute | Details |
+|---|---|
+| **Source** | Amazon Sales Dataset |
+| **Timeframe** | 2015 – 2020 |
+| **Granularity** | Order-level transactions |
+| **Volume** | 113K+ orders, 713K+ products sold |
+| **Key Fields** | Customer demographics, Product hierarchy, Sales metrics, Operational data |
+
+**Key Attributes include:**
+- Customer: Age, Gender, Location
+- Product: Category → Subcategory → Product Name
+- Sales: Price, Quantity, Revenue, Profit, Discount
+- Operations: Delivery Type, Order Status, Shipping Fee
+
+***
+
+## 🏗️ Data Model
+
+A **Star Schema** architecture powers the entire analytics layer:
+
+```
+                    ┌──────────────┐
+                    │  Dim_Customer │
+                    └──────┬───────┘
+                           │
+┌──────────────┐    ┌──────▼────────┐    ┌──────────────┐
+│  Dim_Product  │────│ Fact_Ecommerce│────│  Dim_Calendar │
+└──────────────┘    └──────┬────────┘    └──────────────┘
+                           │
+                    ┌──────▼───────┐
+                    │   Dim_Order  │
+                    └──────────────┘
+```
+
+**Why Star Schema?**
+- ⚡ Enables fast DAX aggregations
+- 🔁 Simplifies time intelligence calculations
+- 📈 Scales cleanly with more data or dimensions
+
+***
+
+## 📊 Dashboard Architecture (6 Analytical Layers)
+
+### 1️⃣ Executive Overview — *What is happening?*
+High-level KPIs for leadership. Tracks revenue trends, profit growth, and regional performance at a glance.
+
+| KPI | Value |
+|---|---|
+| Total Revenue | $160M |
+| Total Profit | $88M |
+| Total Orders | 113K |
+| Products Sold | 713K |
+| Avg Rating | 2.73 / 5 |
+
+**Key Insight:** Revenue grew sharply in 2020, but profit growth did not keep pace — signaling cost pressure and margin erosion.
+
+***
+
+### 2️⃣ Order Behavior Analysis — *Why are customers buying?*
+Examines purchase patterns by demographics, delivery preferences, and order outcomes.
+
+- Adults dominate purchases (~83% of orders)
+- Gender split is balanced — no strong segment skew
+- **~27% return rate** — a critical profitability risk
+
+> 💡 High returns suggest product-expectation mismatch, description gaps, or logistics failures.
+
+***
+
+### 3️⃣ Product Performance — *What sells and what doesn't?*
+Revenue and profit breakdown by category, subcategory, and SKU.
+
+- Revenue is concentrated in a **few top-performing categories**
+- Several products generate high volume but **low or negative margins**
+- Signals the need for product portfolio rebalancing
+
+***
+
+### 4️⃣ Customer Insights — *Who are the valuable customers?*
+Geographic revenue distribution and customer-level performance metrics.
+
+- Strong geographic concentration in select regions
+- Revenue per customer is stable over time → **low churn signal**
+- 31K+ rating entries available for product feedback analysis
+
+***
+
+### 5️⃣ Profit Analysis & Forecasting — *Where is money made or lost?*
+Profit dynamics, discount impact analysis, and time-series forecasting.
+
+- Profit growth was flat until a **sharp uptick in 2020**
+- Discounts are the **primary margin leak**
+- Forecast shows continued upward trend if discount structure is corrected
+
+***
+
+### 6️⃣ Target vs. Performance — *Are we meeting goals?*
+Variance analysis between planned and actual KPIs.
+
+- Revenue: ~50% of target achieved
+- Profit gap remains significant
+- Incremental profit trend is slowly improving
+
+***
+
+## 💡 Key Business Insights
+
+| # | Insight |
+|---|---|
+| 📈 | Revenue growth is strong, but **profit efficiency is weak** |
+| 🔄 | A **~27% return rate** is materially harming profitability |
+| 🛍️ | Revenue is **over-dependent** on a narrow product range |
+| 🌍 | Geographic concentration creates **regional risk exposure** |
+| 💸 | **Over-discounting** is the top margin erosion driver |
+| 🎯 | Business is growing but **underperforming vs. targets** |
+
+***
+
+## 🚀 Strategic Recommendations
+
+1. **Reduce Returns** — Improve product descriptions, images, and size guides; root-cause analysis on return reasons
+2. **Fix Pricing Strategy** — Cut unnecessary discounting; explore dynamic pricing
+3. **Prioritize High-Margin SKUs** — Shift focus from volume-driven to profit-driven product mix
+4. **Segment Customers** — Build RFM-based segments for personalized campaigns
+5. **Geographic Diversification** — Invest in underperforming regions to reduce concentration risk
+
+***
+
+## 🛠️ Technical Stack
+
+| Tool | Usage |
+|---|---|
+| **Power BI Desktop** | Dashboard development |
+| **DAX** | KPI measures, time intelligence, YoY ratios |
+| **Star Schema** | Data modeling |
+| **Power Query (M)** | Data transformation and cleaning |
+
+**Advanced DAX Features Used:**
+- Time intelligence (YoY growth, rolling averages)
+- Dynamic KPI cards with conditional formatting
+- Ratio measures (profit margin %, return rate %)
+- Forecast line using Power BI analytics pane
+
+***
+
+## 📂 Repository Structure
+
+```
+📦 amazon-sales-analytics/
+├── 📁 data/
+│   └── amazon_sales_data.csv
+├── 📁 dashboard/
+│   └── Amazon_Sales_Analytics.pbix
+├── 📁 screenshots/
+│   ├── 01_executive_overview.png
+│   ├── 02_order_behavior.png
+│   ├── 03_product_performance.png
+│   ├── 04_customer_insights.png
+│   ├── 05_profit_forecast.png
+│   └── 06_target_vs_actual.png
+└── README.md
+```
+
+***
+
+## ▶️ How to Run
+
+1. Clone this repository
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/amazon-sales-analytics.git
+   ```
+2. Open `dashboard/Amazon_Sales_Analytics.pbix` in **Power BI Desktop**
+3. Use interactive filters:
+   - 📅 Year (2015–2020)
+   - 🗂️ Product Category
+   - 👤 Customer Attributes (Age, Gender, Region)
+
+
+
+
