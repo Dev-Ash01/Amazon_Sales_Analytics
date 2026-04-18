@@ -46,31 +46,17 @@ E-commerce businesses generate massive transactional data but often lack structu
 
 A **Star Schema** architecture powers the entire analytics layer:
 
-```
-                    ┌──────────────┐
-                    │  Dim_Customer │
-                    └──────┬───────┘
-                           │
-┌──────────────┐    ┌──────▼────────┐    ┌──────────────┐
-│  Dim_Product  │────│ Fact_Ecommerce│────│  Dim_Calendar │
-└──────────────┘    └──────┬────────┘    └──────────────┘
-                           │
-                    ┌──────▼───────┐
-                    │   Dim_Order  │
-                    └──────────────┘
-```
+<img width="1440" height="1023" alt="Image" src="https://github.com/user-attachments/assets/450266bd-a314-4fef-a758-4f2ee633094a" />
 
-**Why Star Schema?**
-- ⚡ Enables fast DAX aggregations
-- 🔁 Simplifies time intelligence calculations
-- 📈 Scales cleanly with more data or dimensions
-
-***
+--- 
 
 ## 📊 Dashboard Architecture (6 Analytical Layers)
 
 ### 1️⃣ Executive Overview — *What is happening?*
 High-level KPIs for leadership. Tracks revenue trends, profit growth, and regional performance at a glance.
+
+<img width="1907" height="1056" alt="Image" src="https://github.com/user-attachments/assets/a64565fd-f47d-41b9-b38c-c1bd1342ef7c" />
+<br>
 
 | KPI | Value |
 |---|---|
@@ -87,6 +73,9 @@ High-level KPIs for leadership. Tracks revenue trends, profit growth, and region
 ### 2️⃣ Order Behavior Analysis — *Why are customers buying?*
 Examines purchase patterns by demographics, delivery preferences, and order outcomes.
 
+<img width="1879" height="1043" alt="Image" src="https://github.com/user-attachments/assets/0a1e7dfa-904a-4d1e-9bad-29db4cb41486" />
+<br>
+
 - Adults dominate purchases (~83% of orders)
 - Gender split is balanced — no strong segment skew
 - **~27% return rate** — a critical profitability risk
@@ -98,6 +87,9 @@ Examines purchase patterns by demographics, delivery preferences, and order outc
 ### 3️⃣ Product Performance — *What sells and what doesn't?*
 Revenue and profit breakdown by category, subcategory, and SKU.
 
+<img width="1885" height="1050" alt="Image" src="https://github.com/user-attachments/assets/09659900-970b-4fec-af4a-a46a89d9293d" />
+<br>
+
 - Revenue is concentrated in a **few top-performing categories**
 - Several products generate high volume but **low or negative margins**
 - Signals the need for product portfolio rebalancing
@@ -106,6 +98,9 @@ Revenue and profit breakdown by category, subcategory, and SKU.
 
 ### 4️⃣ Customer Insights — *Who are the valuable customers?*
 Geographic revenue distribution and customer-level performance metrics.
+
+<img width="1884" height="1046" alt="Image" src="https://github.com/user-attachments/assets/7c63c980-d84f-44b7-95d8-a2583691364c" />
+<br>
 
 - Strong geographic concentration in select regions
 - Revenue per customer is stable over time → **low churn signal**
@@ -116,6 +111,9 @@ Geographic revenue distribution and customer-level performance metrics.
 ### 5️⃣ Profit Analysis & Forecasting — *Where is money made or lost?*
 Profit dynamics, discount impact analysis, and time-series forecasting.
 
+<img width="1895" height="1048" alt="Image" src="https://github.com/user-attachments/assets/a56c9104-4ba5-4595-9a45-ad55b4b3e728" />
+<br>
+
 - Profit growth was flat until a **sharp uptick in 2020**
 - Discounts are the **primary margin leak**
 - Forecast shows continued upward trend if discount structure is corrected
@@ -124,6 +122,9 @@ Profit dynamics, discount impact analysis, and time-series forecasting.
 
 ### 6️⃣ Target vs. Performance — *Are we meeting goals?*
 Variance analysis between planned and actual KPIs.
+
+<img width="1872" height="1041" alt="Image" src="https://github.com/user-attachments/assets/ed6ab5d8-b764-4e26-b726-8c6127565799" />
+<br>
 
 - Revenue: ~50% of target achieved
 - Profit gap remains significant
